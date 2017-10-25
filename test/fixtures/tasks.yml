@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_name: MyString
+  total_hours: 1
+  project_id: 1
+  user_id: 1
+  start_date: 2017-10-25 01:00:17
+  end_date: 2017-10-25 01:00:17
+
+two:
+  task_name: MyString
+  total_hours: 1
+  project_id: 1
+  user_id: 1
+  start_date: 2017-10-25 01:00:17
+  end_date: 2017-10-25 01:00:17

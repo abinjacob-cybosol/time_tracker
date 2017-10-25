@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  desc: MyText
+  planned_hours: 1
+  status: MyString
+  start_date: 2017-10-25 00:56:50
+  end_date: 2017-10-25 00:56:50
+
+two:
+  name: MyString
+  desc: MyText
+  planned_hours: 1
+  status: MyString
+  start_date: 2017-10-25 00:56:50
+  end_date: 2017-10-25 00:56:50

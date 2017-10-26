@@ -36,5 +36,5 @@
   	</tr>
   </tbody>
 </table>
-<div><%= link_to 'Back', projects_path %></div>
+<div><%= link_to "Delete", task_path(@task), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></div>
 <div><%= link_to 'Update', edit_task_path(@task) %></div>

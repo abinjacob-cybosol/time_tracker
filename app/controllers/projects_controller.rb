@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
       @projects = current_user.projects
     end
     respond_to do |format|
-      format.html
+      format.html 
     end
   end
 
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_project
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
   end
 
   private

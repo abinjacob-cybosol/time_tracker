@@ -39,5 +39,6 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to "Download as Csv", controller:'tasks',action:'index',format: :csv,filterrific: params[:filterrific] %>
+  <%= link_to "Download as CSV", controller:'tasks',action:'index',format: :csv,project_id: params[:project_id] %> |
+  <%= link_to "Excel", controller:'tasks',action:'index',format: :xls,project_id: params[:project_id] %>
 </div>

@@ -8,6 +8,8 @@ class DashboardController < ApplicationController
     @projects = current_user.projects
     respond_to do |format|
       format.html
+      format.csv { send_data @tasks.to_csv }
+      format.xls
     end
   end
 end

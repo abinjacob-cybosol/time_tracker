@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Task</Data></Cell>
+        <Cell><Data ss:Type="String">Project</Data></Cell>
+        <Cell><Data ss:Type="String">User</Data></Cell>
+        <Cell><Data ss:Type="String">Hours</Data></Cell>
+        <Cell><Data ss:Type="String">Start Date</Data></Cell>
+        <Cell><Data ss:Type="String">End Date</Data></Cell>
+      </Row>
+    <% @tasks.each do |task| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= task.task_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= task.project.try(:name) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= task.user.try(:name) %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= task.total_hours %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= task.start_date.try(:strftime,"%Y-%b-%d") %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= task.end_date.try(:strftime,"%Y-%b-%d") %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

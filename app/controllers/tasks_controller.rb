@@ -1,7 +1,17 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
-    @tasks = current_user.tasks
+    if params[:project_id] && (params[:project_id] != "")
+      @tasks = current_user.tasks.where(project_id: params[:project_id])
+    else
+      @tasks = current_user.tasks
+    end
+    @projects = current_user.projects
+    respond_to do |format|
+      format.html
+      format.csv { send_data @tasks.to_csv }
+      format.xls
+    end
   end
 
   def show
@@ -52,7 +62,8 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+
+      @task = current_user.tasks.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

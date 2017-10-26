@@ -5,7 +5,7 @@
 .task-btn {
     position: absolute;
     right: 100px;
-    top: 60px;
+    top: 19px;
 }
 .search-blk {
     position: relative;
@@ -23,4 +23,26 @@ select#project_id {
     position: relative;
     margin-left: 19px;
     width: 97%;
+}
+.menu li a {
+    font-size: large;
+    padding-left: 5px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8791AC;
+}
+.menu li {
+    float: left;
+}
+.menu li a:hover {
+    background-color: #e7e9ee;
 }

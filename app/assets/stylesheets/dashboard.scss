@@ -1,3 +1,26 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.task-btn {
+    position: absolute;
+    right: 100px;
+    top: 60px;
+}
+.search-blk {
+    position: relative;
+    padding-bottom: 24px;
+    padding-left: 20px;
+}
+select#project_id {
+    width: 160px;
+    height: 27px;
+}
+.dash-titles {
+    padding-left: 20px;
+}
+.dash-tasks table {
+    position: relative;
+    margin-left: 19px;
+    width: 97%;
+}

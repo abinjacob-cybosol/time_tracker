@@ -1,0 +1,43 @@
+<div class = "pt-title">
+<h1><%=@project.name.upcase%></h1>
+</div>
+<div class = "pt-details">
+<h3>Details </h3>
+</div>
+<table>
+  <tbody>
+  	<tr>
+  		<th>Project Name</th>
+  		<td><%=@project.name.upcase%></td>
+  	</tr>
+  	<tr>
+  		<th>Description</th>
+  		<td><span><%=@project.desc%></span></td>
+  	</tr>
+  	<tr>
+  		<th>Status</th>
+  		<td><%=@project.status%></td>
+  	</tr>
+  	<tr>
+  		<th>Members</th>
+  		<td><span><%=@project.member_names%></span></td>
+  	</tr>
+  	<tr>
+  		<th>Planned Hours</th>
+  		<td><%=@project.planned_hours%></td>
+  	</tr>
+  	<tr>
+  		<th>Start Date</th>
+  		<td><%=@project.start_date.try(:strftime,"%Y-%b-%d")%></td>
+  	</tr>
+  	<tr>
+  		<th>End Date</th>
+  		<td><%=@project.end_date.try(:strftime,"%Y-%b-%d")%></td>
+  	</tr>
+  	<tr>
+  		<th>Created At</th>
+  		<td><%=@project.created_at.try(:strftime,"%Y-%b-%d")%></td>
+  	</tr>
+  </tbody>
+</table>
+<div><%= link_to 'Home', dashboard_index_path %></div>

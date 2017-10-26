@@ -1,2 +1,43 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+
+<div class = "dash-titles">
+  <h1>Dashboard</h1>
+  <h2>Tasks</h2>
+</div>
+<div class="task-btn"><a href="<%= new_task_path %>"><button type="button">New Task</button></a></div>
+<div class="search-blk">
+  <%= form_tag(dashboard_index_path, method: :get) do %>
+    <%= select_tag(:project_id, options_for_select(@projects.map { |p| [p.name, p.id] },params[:project_id]), include_blank: 'Select')%>
+    <%= submit_tag 'Search', name: nil %>
+  <% end %>
+</div>
+<div class="dash-tasks">
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Project</th>
+        <th>Hours</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% for task in @tasks %>
+    		<div class='task'>
+      		<tr>
+          	<td>
+              <strong> <%= task.task_name %> </strong>
+            </td>
+            <td><%= task.project.try(:name) %></td>
+            <td><%= task.total_hours %></td>
+            <td><%= task.start_date.try(:strftime,"%Y-%b-%d") %></td>
+            <td><%= task.end_date.try(:strftime,"%Y-%b-%d") %></td>
+            <td><%= link_to 'Details', task_path(task) %></td>
+          </tr>
+        </div>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "Download as Csv", controller:'tasks',action:'index',format: :csv,filterrific: params[:filterrific] %>
+</div>

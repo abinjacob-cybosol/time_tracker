@@ -1,0 +1,60 @@
+<div class="task-form">
+  <%= form_with(model: @task, local: true) do |form| %>
+    <% if @task.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+        <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <table>
+      <tbody>
+        <tr>
+          <div class="field">
+            <th><%= form.label :task %></th>
+            <td><%= form.text_field :task_name, id: :task_title %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="field">
+            <th><%= form.label :project %></th>
+            <td><%= form.select :project_id, Project.all.collect { |p| [ p.name, p.id ] }, include_blank: 'Select' %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="field">
+            <th><%= form.label :hours %></th>
+            <td><%= form.text_field :total_hours, id: :task_total_hours %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="field">
+            <th><%= form.label :start_date %></th>
+            <td><%= form.date_field :start_date, id: :task_start_date %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="field">
+            <th><%= form.label :end_date %></th>
+            <td><%= form.date_field :end_date, id: :task_end_date %></td>
+          </div>
+        <tr>
+          <div class="field">
+            <th> </th>
+            <td><%= form.hidden_field :user_id, :value => current_user.id %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="actions">
+            <th> </th>
+            <td><%= form.submit %></td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

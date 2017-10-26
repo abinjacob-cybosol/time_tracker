@@ -1,0 +1,34 @@
+
+<h1>Projects</h1>
+<%= form_tag(projects_path, method: :get) do %>
+  <%= select_tag(:project_id, options_for_select(@projects.map { |p| [p.name, p.id] },params[:project_id]), include_blank: 'Select')%>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Status</th>
+      <th>Planned Hours</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% for project in @projects %>
+  		<div class='task'>
+    		<tr>
+        	<td>
+            <strong> <%= project.name %> </strong>
+          </td>
+          <td><%= project.status %></td>
+          <td><%= project.planned_hours %></td>
+          <td><%= project.start_date.try(:strftime,"%Y-%b-%d") %></td>
+          <td><%= project.end_date.try(:strftime,"%Y-%b-%d") %></td>
+          <td><%= link_to 'Details', project_path(project) %></td>
+        </tr>
+      </div>
+    <% end %>
+  </tbody>
+</table>
